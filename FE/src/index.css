@@ -1,0 +1,376 @@
+/* *********************************************
+ * Global Styles
+ **********************************************/
+:root {
+  --primary-color: #31c0d6;
+  --secondary-color: #1cc3b2;
+  --dark-color: #191818;
+  --footer-bg: #0b2b4f;
+  --footer-border: #1f3a60;
+  --text-light: #fff;
+  --text-dark: #000;
+  --transition-speed: 0.5s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Pacifico Regular", cursive;
+} */
+.hotel-logo {
+  font-family: "Pacifico Regular", cursive;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**********************************************
+ * Components
+ **********************************************/
+
+/* Card */
+.card {
+  opacity: 0.9;
+}
+
+/* Navbar */
+.navbar {
+  padding: 0;
+}
+
+.navbar .navbar-nav .nav-link {
+  padding: 1em;
+  color: var(--dark-color);
+}
+
+.navbar .navbar-nav .nav-item {
+  position: relative;
+}
+
+.navbar .navbar-nav .nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--secondary-color);
+  width: 0;
+  height: 4px;
+  transition: width var(--transition-speed);
+}
+
+.navbar .navbar-nav .nav-item:hover::after {
+  width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+  .navbar .navbar-nav .nav-link {
+    padding: 1em 0;
+  }
+  .navbar .navbar-nav .nav-item {
+    margin: 0 1em;
+  }
+}
+
+/* Buttons */
+.btn-hotel {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  transition: background-color 0.7s;
+}
+
+.btn-hotel:hover {
+  background-color: #897f84;
+}
+
+/* Room Price */
+.room-price {
+  color: darkgoldenrod;
+  font-family: "Courier New", Courier, monospace;
+  font-size: medium;
+}
+
+/* Parallax */
+.parallax {
+  position: relative;
+  background-image: url("./assets/images/parrall.jpg");
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 283.3px;
+  color: var(--text-light);
+  text-shadow: 2px 2px var(--text-dark);
+  margin-top: 50px;
+}
+
+/**********************************************
+ * Animated
+ **********************************************/
+.animated {
+  animation-duration: 1s;
+}
+
+.animated-texts h1 {
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.animated-texts p,
+h1,
+h2 {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translate3d(0, 0, 0);
+  }
+
+  40%,
+  60% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.bounceIn {
+  animation-name: bounceIn;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/**********************************************
+ * Headers overlay
+ **********************************************/
+.overlay-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    180deg,
+    rgba(56, 58, 78, 0.6) 0%,
+    rgba(11, 12, 18, 0.5) 100%
+  );
+  z-index: 0; /* Đảm bảo overlay ở dưới chữ */
+}
+
+.overlay-parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    180deg,
+    rgba(56, 58, 78, 0.6) 0%,
+    rgba(11, 12, 18, 0.5) 100%
+  );
+  z-index: 0;
+}
+
+.overlay-content-parallax {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-family: "Open Sans";
+  text-align: center;
+  z-index: 1; /* Đảm bảo văn bản trên banner không bị overlay che */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Tăng độ sáng của chữ */
+}
+
+/**********************************************
+ * Headers banner
+ **********************************************/
+.header-banner {
+  background-image: url("./assets/images/home-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height: 80vh;
+}
+
+.header-banner .overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  z-index: 1; /* Đảm bảo văn bản trên banner không bị overlay che */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Tăng độ sáng của chữ */
+}
+
+.header-banner .overlay-content h1 {
+  font-size: 78px;
+}
+
+.header-banner .overlay-content h4 {
+  font-size: 18px;
+}
+
+/**********************************************
+ * Responsive font sizes
+ **********************************************/
+@media only screen and (max-width: 768px) {
+  .header-banner h1 {
+    font-size: 30px; /* Giảm kích thước chữ cho màn hình nhỏ */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header-banner h1 {
+    font-size: 22px; /* Giảm kích thước chữ cho màn hình nhỏ hơn */
+  }
+}
+
+/**********************************************
+ * Footer
+ **********************************************/
+.footer-custom {
+  background-color: var(--footer-bg);
+  color: var(--text-light);
+  padding: 40px 0;
+}
+
+.footer-custom h2 {
+  color: var(--primary-color);
+  font-size: 32px;
+}
+
+.footer-custom h5 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-span {
+  color: #afb4bf;
+  font-size: 14px;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-list li {
+  margin-bottom: 10px;
+}
+
+.footer-list li p {
+  margin: 0;
+}
+
+.contact-number {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.subscribe-form input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--footer-border);
+  color: var(--text-light);
+}
+
+.subscribe-form button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe-form button:hover {
+  background-color: #1abc9c;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--footer-border);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons svg {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.social-icons svg:hover {
+  color: var(--primary-color);
+}
