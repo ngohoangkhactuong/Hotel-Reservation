@@ -1,6 +1,3 @@
-Here's the modified `README.md` tailored for your hotel reservations website:
-
-```markdown
 # Hotel Reservations Website
 ---
 
